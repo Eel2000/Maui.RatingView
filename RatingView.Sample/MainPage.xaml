@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:rv="clr-namespace:RatingView.Views;assembly=RatingView"
              x:Class="RatingView.Sample.MainPage">
 
     <ScrollView>
@@ -16,7 +17,7 @@
                 HorizontalOptions="Center" />
 
             <Label
-                Text="Hello, World!"
+                Text="Hello, World! this is a RatingView Sample"
                 SemanticProperties.HeadingLevel="Level1"
                 FontSize="32"
                 HorizontalOptions="Center" />
@@ -27,6 +28,10 @@
                 SemanticProperties.Description="Welcome to dot net Multi platform App U I"
                 FontSize="18"
                 HorizontalOptions="Center" />
+
+            <rv:RatingView Maximum="5" Value="3" StarSize="40" AllowClickRating="True"/>
+            
+            <rv:RatingView Maximum="5" Value="2.5" StarSize="40" StarColor="BlueViolet"/>
 
             <Button
                 x:Name="CounterBtn"

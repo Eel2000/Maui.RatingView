@@ -72,15 +72,18 @@ public class RatingView : BaseTemplateView<Grid>
             defaultValue: null,
             propertyChanged: OnCommandChanged);
 
+    public static readonly BindableProperty AnimateProperty =
+        BindableProperty.Create(
+            nameof(Animate),
+            typeof(bool),
+            typeof(RatingView),
+            defaultValue: true,
+            propertyChanged: OnAnimateChanged);
 
     #endregion
 
     #region Private Properties
-    //The collection of stars images
     private Image[] stars;
-
-    //The flag that specifies if the use is interacting with the view
-    private bool isTouching;
     #endregion
 
     #region Public Properties
@@ -114,9 +117,6 @@ public class RatingView : BaseTemplateView<Grid>
         set => SetValue(StarSpacingProperty, value);
     }
 
-    /// <summary>
-    /// Activate the rating event on clicked
-    /// </summary>
     public bool AllowClickRating
     {
         get => (bool)GetValue(AllowClickRatingProperty);
@@ -127,6 +127,12 @@ public class RatingView : BaseTemplateView<Grid>
     {
         get => (ICommand)GetValue(CommandProperty);
         set => SetValue(CommandProperty, value);
+    }
+
+    public bool Animate
+    {
+        get => (bool)GetValue(AnimateProperty);
+        set => SetValue(AnimateProperty, value);
     }
     #endregion
 
@@ -179,9 +185,6 @@ public class RatingView : BaseTemplateView<Grid>
         }
     }
 
-    /// <summary>
-    /// Create the stars images to fill with the grid
-    /// </summary>
     private void GenerateStars()
     {
         for (int i = 0; i < Maximum; i++)
@@ -230,7 +233,10 @@ public class RatingView : BaseTemplateView<Grid>
             this.Control.SetColumn(image, i);
 
 
-            stars[i] = ApplyCustomStyle(image);
+            if (Animate)
+                stars[i] = ApplyCustomStyle(image);
+            else
+                stars[i] = image;
         }
 
         UpdateStars();
@@ -290,7 +296,10 @@ public class RatingView : BaseTemplateView<Grid>
             Control.Children.Add(image);
             this.Control.SetColumn(image, i);
 
-            stars[i] = image;
+            if (Animate)
+                stars[i] = ApplyCustomStyle(image);
+            else
+                stars[i] = image;
         }
 
         UpdateStars();
@@ -308,7 +317,7 @@ public class RatingView : BaseTemplateView<Grid>
         Setter pointerOverSetter = new()
         {
             Property = Image.ScaleProperty,
-            Value = 1.02,
+            Value = 1.05,
         };
         pointerOverState.Setters.Add(pointerOverSetter);
 
@@ -325,7 +334,6 @@ public class RatingView : BaseTemplateView<Grid>
         commonStatesGroup.States.Add(pointerOverState);
 
         VisualStateManager.GetVisualStateGroups(image).Add(commonStatesGroup);
-        //VisualStateManager.GetVisualStateGroups(imageStyle).Add(commonStatesGroup);
 
         image.Style = imageStyle;
 
@@ -397,6 +405,13 @@ public class RatingView : BaseTemplateView<Grid>
     }
 
     private static void OnCommandChanged(BindableObject bindable, object oldValue, object newValue)
+    {
+        var ratingView = bindable as RatingView;
+
+        ratingView.RegenerateStars();
+    }
+
+    private static void OnAnimateChanged(BindableObject bindable, object oldValue, object newValue)
     {
         var ratingView = bindable as RatingView;
 

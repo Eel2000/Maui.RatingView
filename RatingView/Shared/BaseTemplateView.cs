@@ -1,6 +1,6 @@
 ﻿namespace RatingView.Shared;
 
-public class BaseTemplateView<TControl> : TemplatedView where TControl : View, new()
+public abstract class BaseTemplateView<TControl> : TemplatedView where TControl : View, new()
 {
     protected TControl? Control { get; private set; }
 

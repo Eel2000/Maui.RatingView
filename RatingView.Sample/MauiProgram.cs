@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.Logging;
+using RatingView.Extensions;
 
 namespace RatingView.Sample
 {
@@ -9,6 +10,7 @@ namespace RatingView.Sample
             var builder = MauiApp.CreateBuilder();
             builder
                 .UseMauiApp<App>()
+                .ConfigureRatingView()
                 .ConfigureFonts(fonts =>
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");

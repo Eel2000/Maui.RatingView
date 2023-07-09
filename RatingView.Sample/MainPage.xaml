@@ -31,16 +31,30 @@
                 FontSize="18"
                 HorizontalOptions="Center" />
 
-            <rv:RatingView Maximum="5" Value="3" StarSize="40" AllowClickRating="True"/>
 
-            <rv:RatingView Maximum="5" Value="2.5" StarSize="40" StarColor="BlueViolet"/>
+            <VerticalStackLayout>
+                <Label Text="Simple rating without data binding" HorizontalOptions="Center"/>
+                <rv:RatingView Maximum="5" Value="3" StarSize="40" AllowClickRating="True"/>
+            </VerticalStackLayout>
 
-            <rv:RatingView Maximum="5" Value="{Binding RatingValue}" StarSize="40" AllowClickRating="True"
+            <VerticalStackLayout>
+                <Label Text="Rating without bindin and click rating" HorizontalOptions="Center"/>
+                <rv:RatingView Maximum="5" Value="2.5" StarSize="40" StarColor="BlueViolet"/>
+            </VerticalStackLayout>
+
+            <VerticalStackLayout>
+                <Label Text="Rating with data binding and command without param" HorizontalOptions="Center"/>
+                <rv:RatingView Maximum="5" Value="{Binding RatingValue}" StarSize="40" AllowClickRating="True"
                            StarColor="GreenYellow" Command="{Binding ShowRatingCommand}"/>
+            </VerticalStackLayout>
 
-            <rv:RatingView Maximum="5" Value="{Binding RatingValue}" StarSize="40" 
+            <VerticalStackLayout>
+                <Label Text="Rating with data binding and command/ Command param" HorizontalOptions="Center"/>
+                <Label Text="{Binding RatingValue, StringFormat='{0}/5'}" HorizontalOptions="Center"/>
+                <rv:RatingView Maximum="5" Value="{Binding RatingValue}" StarSize="40" 
                            StarColor="Purple" Command="{Binding RatingCommand}"
                            CommandParameter="{Binding Data}" AllowClickRating="True"/>
+            </VerticalStackLayout>
 
             <Button
                 x:Name="CounterBtn"

@@ -31,6 +31,7 @@ public partial class MainPageViewModel : ObservableObject
     [RelayCommand]
     Task Rating(Rating rating)
     {
+        RatingValue = rating.Value;
         var param = rating.Parameter as Entity;
         Shell.Current.DisplayAlert("Rating", param.Name + " ,Your vote is " + rating.Value, "Ok");
 

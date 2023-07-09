@@ -2,7 +2,9 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:rv="clr-namespace:RatingView.Views;assembly=RatingView"
-             x:Class="RatingView.Sample.MainPage">
+             xmlns:vm="clr-namespace:RatingView.Sample.ViewModels"
+             x:Class="RatingView.Sample.MainPage"
+             x:DataType="vm:MainPageViewModel">
 
     <ScrollView>
         <VerticalStackLayout
@@ -30,8 +32,15 @@
                 HorizontalOptions="Center" />
 
             <rv:RatingView Maximum="5" Value="3" StarSize="40" AllowClickRating="True"/>
-            
+
             <rv:RatingView Maximum="5" Value="2.5" StarSize="40" StarColor="BlueViolet"/>
+
+            <rv:RatingView Maximum="5" Value="{Binding RatingValue}" StarSize="40" AllowClickRating="True"
+                           StarColor="GreenYellow" Command="{Binding ShowRatingCommand}"/>
+
+            <rv:RatingView Maximum="5" Value="{Binding RatingValue}" StarSize="40" 
+                           StarColor="Purple" Command="{Binding RatingCommand}"
+                           CommandParameter="{Binding Data}" AllowClickRating="True"/>
 
             <Button
                 x:Name="CounterBtn"

@@ -1,5 +1,7 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
 using RatingView.Extensions;
+using RatingView.Sample.ViewModels;
 
 namespace RatingView.Sample
 {
@@ -20,6 +22,8 @@ namespace RatingView.Sample
 #if DEBUG
 		builder.Logging.AddDebug();
 #endif
+            builder.Services.AddTransient<MainPage>();
+            builder.Services.AddTransient<MainPageViewModel>();
 
             return builder.Build();
         }

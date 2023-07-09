@@ -1,4 +1,5 @@
-﻿using RatingView.Shared;
+﻿using RatingView.Models;
+using RatingView.Shared;
 using System.Windows.Input;
 
 namespace RatingView.Views;
@@ -72,6 +73,14 @@ public class RatingView : BaseTemplateView<Grid>
             defaultValue: null,
             propertyChanged: OnCommandChanged);
 
+    public static readonly BindableProperty CommandParameterProperty =
+        BindableProperty.Create(
+            nameof(CommandParameter),
+            typeof(object),
+            typeof(RatingView),
+            defaultValue: null,
+            propertyChanged: OnCommandParameterChanged);
+
     public static readonly BindableProperty AnimateProperty =
         BindableProperty.Create(
             nameof(Animate),
@@ -133,6 +142,12 @@ public class RatingView : BaseTemplateView<Grid>
     {
         get => (bool)GetValue(AnimateProperty);
         set => SetValue(AnimateProperty, value);
+    }
+
+    public object CommandParameter
+    {
+        get => (object)GetValue(CommandParameterProperty);
+        set => SetValue(CommandParameterProperty, value);
     }
     #endregion
 
@@ -418,6 +433,13 @@ public class RatingView : BaseTemplateView<Grid>
         ratingView.RegenerateStars();
     }
 
+    private static void OnCommandParameterChanged(BindableObject bindable, object oldValue, object newValue)
+    {
+        var ratingView = bindable as RatingView;
+
+        ratingView.RegenerateStars();
+    }
+
     private void OnStarTapped(object sender, TappedEventArgs e)
     {
         var tappedImage = sender as Image;
@@ -428,9 +450,14 @@ public class RatingView : BaseTemplateView<Grid>
 
         Value = columnIndex + 1;
 
-        if (Command is not null && Command.CanExecute(Value))
+        Rating rating = new()
         {
-            Command.Execute(Value);
+            Value = Value,
+            Parameter = CommandParameter
+        };
+        if (Command is not null && Command.CanExecute(rating))
+        {
+            Command.Execute(rating);
         }
     }
     #endregion

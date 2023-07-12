@@ -15,6 +15,18 @@
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</SupportedOSPlatformVersion>
 		<TargetPlatformMinVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</TargetPlatformMinVersion>
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'tizen'">6.5</SupportedOSPlatformVersion>
+
+		<PackageVersion>1.0.0-alpha</PackageVersion>
+
+		<Title>Maui.RatingView</Title>
+
+		<Authors>Eliezer Bwana</Authors>
+
+		<Description>A DotNet MAUI control for using the rating capability</Description>
+
+		<PackageOutputPath>C:\Users\CTRL TECH\Documents\APKs\Packages</PackageOutputPath>
+
+		<PackageId>RatingViewControl</PackageId>
 	</PropertyGroup>
 
 	<ItemGroup>

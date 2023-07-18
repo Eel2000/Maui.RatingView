@@ -34,26 +34,48 @@
 
             <VerticalStackLayout>
                 <Label Text="Simple rating without data binding" HorizontalOptions="Center"/>
-                <rv:RatingView Maximum="5" Value="3" StarSize="40" AllowClickRating="True"/>
+                <rv:RatingControl Maximum="5" Value="3" Size="40" AllowRating="True" Shape="Heart"
+                                  StrokeThickness="5"/>
+            </VerticalStackLayout>
+
+            <VerticalStackLayout>
+                <Label Text="Simple rating without data binding" HorizontalOptions="Center"/>
+                <rv:RatingControl Maximum="5" Value="3.5" Size="40" AllowRating="True" Shape="Star"
+                                  StrokeThickness="5" Fill="Coral"/>
+            </VerticalStackLayout>
+
+            <VerticalStackLayout>
+                <Label Text="Simple rating without data binding" HorizontalOptions="Center"/>
+                <rv:RatingControl Maximum="5" Value="4.5" Size="40" AllowRating="True" Shape="Heart"
+                                  StrokeThickness="5" Fill="DarkOrange"/>
             </VerticalStackLayout>
 
             <VerticalStackLayout>
                 <Label Text="Rating without bindin and click rating" HorizontalOptions="Center"/>
-                <rv:RatingView Maximum="5" Value="2.5" StarSize="40" StarColor="BlueViolet"/>
+                <rv:RatingControl Maximum="5" Value="2.5" Size="40" Fill="BlueViolet" Shape="Like"
+                                  StrokeThickness="5"/>
+            </VerticalStackLayout>
+
+            <VerticalStackLayout>
+                <Label Text="Rating without bindin and click rating" HorizontalOptions="Center"/>
+                <rv:RatingControl Maximum="5" Value="1.27" Size="40" Fill="DarkRed" Shape="Dislike"
+                                  StrokeThickness="5"/>
             </VerticalStackLayout>
 
             <VerticalStackLayout>
                 <Label Text="Rating with data binding and command without param" HorizontalOptions="Center"/>
-                <rv:RatingView Maximum="5" Value="{Binding RatingValue}" StarSize="40" AllowClickRating="True"
-                           StarColor="GreenYellow" Command="{Binding ShowRatingCommand}"/>
+                <rv:RatingControl Maximum="5" Value="{Binding RatingValue}" Size="40" AllowRating="True"
+                           Fill="GreenYellow" Command="{Binding ShowRatingCommand}"
+                                  StrokeThickness="5"/>
             </VerticalStackLayout>
 
             <VerticalStackLayout>
                 <Label Text="Rating with data binding and command/ Command param" HorizontalOptions="Center"/>
                 <Label Text="{Binding RatingValue, StringFormat='{0}/5'}" HorizontalOptions="Center"/>
-                <rv:RatingView Maximum="5" Value="{Binding RatingValue}" StarSize="40" 
-                           StarColor="Purple" Command="{Binding RatingCommand}"
-                           CommandParameter="{Binding Data}" AllowClickRating="True"/>
+                <rv:RatingControl Maximum="5" Value="{Binding RatingValue}" Size="40" 
+                           Fill="Purple" Command="{Binding RatingCommand}"
+                           CommandParameter="{Binding Data}" AllowRating="True"
+                                  StrokeThickness="5"/>
             </VerticalStackLayout>
 
             <Button

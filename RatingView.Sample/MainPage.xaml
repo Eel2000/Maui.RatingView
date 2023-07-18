@@ -86,12 +86,13 @@
                 <Label Text="Liked scenario" HorizontalOptions="Center"/>
                 <HorizontalStackLayout Spacing="10" HorizontalOptions="CenterAndExpand">
                     <rv:RatingControl x:Name="likedBtn" Maximum="1" Value="{Binding Liked}" Size="40" AllowRating="True"
-                           Fill="ForestGreen" Command="{Binding LikeDislikeCommand}" CommandParameter="{x:Reference unLikedBtn}"
+                           Fill="ForestGreen" Command="{Binding LikeDislikeCommand}" BindControl="{x:Reference unLikedBtn}"
                                   StrokeThickness="5" Shape="Like"/>
 
                     <rv:RatingControl x:Name="unLikedBtn" Maximum="1" Value="{Binding UnLiked}" Size="40" AllowRating="True"
-                           Fill="DarkRed" Command="{Binding LikeDislikeCommand}" CommandParameter="{x:Reference likedBtn}"
-                                  StrokeThickness="5" Shape="Dislike"/>
+                                      Fill="DarkRed" Command="{Binding LikeDislikeCommand}" 
+                                      BindControl="{x:Reference likedBtn}"
+                                      StrokeThickness="5" Shape="Dislike"/>
                 </HorizontalStackLayout>
             </VerticalStackLayout>
 

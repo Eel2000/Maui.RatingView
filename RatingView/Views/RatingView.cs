@@ -4,6 +4,7 @@ using System.Windows.Input;
 
 namespace RatingView.Views;
 
+[Obsolete("Not longer supported,please use the **RatingControl** instead",true)]
 // All the code in this file is included in all platforms.
 public class RatingView : BaseTemplateView<Grid>
 {

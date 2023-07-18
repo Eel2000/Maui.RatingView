@@ -117,6 +117,13 @@ public class RatingControl : BaseTemplateView<Grid>
             defaultValue: null,
             propertyChanged: OnBindablePropertyChanged);
 
+    public static readonly BindableProperty BindControlProperty =
+        BindableProperty.Create(
+            nameof(BindControl),
+            typeof(object),
+            typeof(RatingControl),
+            propertyChanged: OnBindablePropertyChanged);
+
     public static readonly BindableProperty AnimateProperty =
         BindableProperty.Create(
             nameof(Animate),
@@ -201,6 +208,12 @@ public class RatingControl : BaseTemplateView<Grid>
         set => SetValue(CommandProperty, value);
     }
 
+    public object BindControl
+    {
+        get => GetValue(BindControlProperty);
+        set => SetValue(BindControlProperty, value);
+    }
+
     public bool Animate
     {
         get => (bool)GetValue(AnimateProperty);
@@ -257,11 +270,11 @@ public class RatingControl : BaseTemplateView<Grid>
         }
         else if (Maximum is 1 or 0)
         {
-            if (CommandParameter is null) throw new ArgumentException(nameof(CommandParameter));
+            if (BindControl is null) throw new ArgumentException(nameof(BindControl));
             if (CommandParameter is RatingControl)
             {
                 Value = Value == 1 ? 0 : 1;
-                ((RatingControl)CommandParameter).Value = Value == 1 ? 0 : 1;
+                ((RatingControl)BindControl).Value = Value == 1 ? 0 : 1;
             }
         }
 

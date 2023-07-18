@@ -70,6 +70,20 @@
             </VerticalStackLayout>
 
             <VerticalStackLayout>
+                <Label Text="Rating with data binding and command without param" HorizontalOptions="Center"/>
+                <rv:RatingControl Maximum="5" Value="{Binding RatingValue}" Size="40" AllowRating="True"
+                           Fill="BurlyWood" Command="{Binding ShowRatingCommand}"
+                                  StrokeThickness="5" Shape="Heart"/>
+            </VerticalStackLayout>
+
+            <VerticalStackLayout>
+                <Label Text="Rating with data binding and command without param" HorizontalOptions="Center"/>
+                <rv:RatingControl Maximum="5" Value="{Binding RatingValue}" Size="40" AllowRating="True"
+                           Fill="Aquamarine" Command="{Binding ShowRatingCommand}"
+                                  StrokeThickness="5" Shape="Like"/>
+            </VerticalStackLayout>
+
+            <VerticalStackLayout>
                 <Label Text="Rating with data binding and command/ Command param" HorizontalOptions="Center"/>
                 <Label Text="{Binding RatingValue, StringFormat='{0}/5'}" HorizontalOptions="Center"/>
                 <rv:RatingControl Maximum="5" Value="{Binding RatingValue}" Size="40" 

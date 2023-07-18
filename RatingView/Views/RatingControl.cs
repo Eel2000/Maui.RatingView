@@ -270,8 +270,11 @@ public class RatingControl : BaseTemplateView<Grid>
         }
         else if (Maximum is 1 or 0)
         {
-            if (BindControl is null) throw new ArgumentException(nameof(BindControl));
-            if (CommandParameter is RatingControl)
+            if (BindControl is null)
+            {
+                Value = Value is 1 ? 0 : 1;
+            }
+            else if (CommandParameter is RatingControl)
             {
                 Value = Value == 1 ? 0 : 1;
                 ((RatingControl)BindControl).Value = Value == 1 ? 0 : 1;

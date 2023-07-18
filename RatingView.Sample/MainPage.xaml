@@ -82,6 +82,13 @@
                                   StrokeThickness="5" Shape="Like"/>
             </VerticalStackLayout>
 
+            <VerticalStackLayout>
+                <Label Text="Rating with data binding and command without param" HorizontalOptions="Center"/>
+                <rv:RatingControl Maximum="1" Size="40" AllowRating="True"
+                           Fill="Aquamarine" Command="{Binding ShowRatingCommand}"
+                                  StrokeThickness="5" Shape="Like"/>
+            </VerticalStackLayout>
+
             <VerticalStackLayout Spacing="5">
                 <Label Text="Liked scenario" HorizontalOptions="Center"/>
                 <HorizontalStackLayout Spacing="10" HorizontalOptions="CenterAndExpand">

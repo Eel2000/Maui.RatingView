@@ -250,13 +250,19 @@ public class RatingControl : BaseTemplateView<Grid>
 
         var columnIndex = Control.GetColumn(tappedShape);
 
+
         if (Maximum > 1)
         {
             Value = columnIndex + 1;
         }
         else if (Maximum is 1 or 0)
         {
-            Value = Value == 1 ? 0 : 1;
+            if (CommandParameter is null) throw new ArgumentException(nameof(CommandParameter));
+            if (CommandParameter is RatingControl)
+            {
+                Value = Value == 1 ? 0 : 1;
+                ((RatingControl)CommandParameter).Value = Value == 1 ? 0 : 1;
+            }
         }
 
         var data = new Rating

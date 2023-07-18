@@ -11,6 +11,9 @@ public partial class MainPageViewModel : ObservableObject
 
     [ObservableProperty] private Entity _data;
 
+    [ObservableProperty] private double _liked;
+    [ObservableProperty] private double _unLiked;
+
     public MainPageViewModel()
     {
         Data = new()
@@ -24,6 +27,23 @@ public partial class MainPageViewModel : ObservableObject
     {
 
         Shell.Current.DisplayAlert("Rating", "Thank you for your feedback", "Ok");
+
+        return Task.CompletedTask;
+    }
+
+    [RelayCommand]
+    Task LikeDislike(Rating like)
+    {
+        if(Liked == 1 && UnLiked == 0)
+        {
+            Liked = 0;
+            UnLiked = 1;
+        }
+        else
+        {
+            Liked = 1;
+            UnLiked = 0;
+        }
 
         return Task.CompletedTask;
     }

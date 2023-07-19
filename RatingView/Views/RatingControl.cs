@@ -18,6 +18,8 @@ public class RatingControl : BaseTemplateView<Grid>
 
     private PathFigureCollection converted;
 
+    private int touchedTime = 0;
+
     #endregion
 
     #region Bindable Properties
@@ -274,10 +276,20 @@ public class RatingControl : BaseTemplateView<Grid>
             {
                 Value = Value is 1 ? 0 : 1;
             }
-            else if (CommandParameter is RatingControl)
+            else if (BindControl is RatingControl)
             {
-                Value = Value == 1 ? 0 : 1;
-                ((RatingControl)BindControl).Value = Value == 1 ? 0 : 1;
+                touchedTime++;
+                if (touchedTime >= 1)
+                {
+                    Value = Value == 1 ? 0 : 1;
+                    ((RatingControl)BindControl).Value = 0;
+                    touchedTime = 0;
+                }
+                else
+                {
+                    Value = Value == 1 ? 0 : 1;
+                    ((RatingControl)BindControl).Value = Value == 1 ? 0 : 1;
+                }
             }
         }
 

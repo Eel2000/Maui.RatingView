@@ -16,17 +16,31 @@
 		<TargetPlatformMinVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</TargetPlatformMinVersion>
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'tizen'">6.5</SupportedOSPlatformVersion>
 
-		<PackageVersion>1.1.2-alpha</PackageVersion>
+		<PackageVersion>1.1.3-alpha</PackageVersion>
 
 		<Title>Maui.RatingView</Title>
 
 		<Authors>Eliezer Bwana</Authors>
 
-		<Description>A DotNet MAUI control for using the rating capability</Description>
+		<Description>Maui.RatingView - is a cross platform plugin for MAUI which allow you to use the rating capabilities in your application with ease and flexibility.</Description>
 
 		<PackageOutputPath>C:\Users\CTRL TECH\Documents\APKs\Packages</PackageOutputPath>
 
 		<PackageId>RatingViewControl</PackageId>
+
+		<Copyright>Eliezer Bwana</Copyright>
+
+		<PackageProjectUrl>https://github.com/Eel2000/Maui.RatingView</PackageProjectUrl>
+
+		<PackageReadmeFile>README.md</PackageReadmeFile>
+
+		<RepositoryUrl>https://github.com/Eel2000/Maui.RatingView</RepositoryUrl>
+
+		<PackageTags>MAUI</PackageTags>
+
+		<PackageReleaseNotes>this version is still in pre-release mode</PackageReleaseNotes>
+
+		<PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
 	</PropertyGroup>
 
 	<ItemGroup>
@@ -36,6 +50,17 @@
 
 	<ItemGroup>
 	  <Folder Include="Views\Controls\" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <None Include="..\LICENSE.txt">
+	    <Pack>True</Pack>
+	    <PackagePath>\</PackagePath>
+	  </None>
+	  <None Include="..\README.md">
+	    <Pack>True</Pack>
+	    <PackagePath>\</PackagePath>
+	  </None>
 	</ItemGroup>
 
 </Project>

@@ -53,7 +53,7 @@ xmlns:rv="clr-namespace:RatingView.Views;assembly=RatingView"
 |Attribute | Description|
 | --- | ---|
 | Shape | the shape to display. there is 4 supported types (Heart,Like,Dislike,Star) |
-| Maximum | the maximun rating value. the default maximum value is `5` |
+| Maximum | the maximum rating value. the default maximum value is `5` |
 | Size | the size of the shape it's an int type. The default shape size is `20px` |
 | Fill | The color used when the shape is filled. the default color is `Orange` |
 | Value | support double values, the current rate value |
@@ -64,7 +64,7 @@ xmlns:rv="clr-namespace:RatingView.Views;assembly=RatingView"
 | AllowRating | A boolean value which define if the click event can be handled to change(update) the rating value |
 | Command | Used when the `AllowRating` is defined to `True` this command attribute can be used to perfom a specifique action on rating value changed |
 | CommandParameter | of type of `object` which is the parameter passed to the command when executed. Note that this parameter when handled in your code it will be of type of `Rating` object which object is a part of the plugin. It has 2 Properties **`Value` : which is the rating value** **`Paramter` : the command parameter passed from the xaml page** |
-| BindControl | This property allows to bind a specique rating view to another one, usefull in some cases. Eg : Youtube Liking behavior |
+| BindControl | This property allows to bind a specific rating view to another one, usefull in some cases. Eg. Youtube Liking behavior |
 | Animate | This property define that the Shape scale should change when Touched or Overlayed **(For Desktop App only at this time )** |
 
 ## Examples

@@ -1,6 +1,8 @@
 # Maui.RatingView
 **Maui.RatingView** - is a cross platform plugin for [MAUI](https://dotnet.microsoft.com/en-us/apps/maui) which allow you to use the rating capabilities in your application with ease and flexibility.
 
+**Important** : this plusing is still in pre-release mode, ensure that in visual studio package manage the prerealse checkbox is check to be able to see it.
+
 ## Desktop
 https://github.com/Eel2000/Maui.RatingView/assets/44249870/c764d534-39e2-446f-8d4e-eaf60ace56e4
 

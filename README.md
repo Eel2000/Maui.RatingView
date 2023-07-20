@@ -55,7 +55,7 @@ xmlns:rv="clr-namespace:RatingView.Views;assembly=RatingView"
 | Command | Used when the `AllowRating` is defined to `True` this command attribute can be used to perfom a specifique action on rating value changed |
 | CommandParameter | of type of object which is the parameter passed to the command when executed. Note that this parameter when handle in your code will be of type of `Rating` object which is the model containt int the library it has 2 Properties **`Value` : which is the rating value** **`Paramter` : the command parameter passed from the xaml page** |
 | BindControl | This property allows to bind a specique rating view to another one, usefull in some scenario. Eg : Youtube Liking behavior |
-| Animate | This property define is the Shape scale should change when Touched or Overlayed **(For Desktop App only at this time )** |
+| Animate | This property define that the Shape scale should change when Touched or Overlayed **(For Desktop App only at this time )** |
 
 ## Examples
 ### Liking fingers

@@ -1,5 +1,5 @@
 # Maui.RatingView
-RatingView is a Dotnet MAUI control that allow to integrate the rating control into a MAUI application.
+**Maui.RatingView** - is a cross platform plugin for [MAUI](https://dotnet.microsoft.com/en-us/apps/maui) which allow you to use the rating capabilities in your application with ease and flexibility.
 
 ## Desktop
 https://github.com/Eel2000/Maui.RatingView/assets/44249870/c764d534-39e2-446f-8d4e-eaf60ace56e4

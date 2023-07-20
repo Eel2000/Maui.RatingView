@@ -4,15 +4,23 @@
 **Important** : this plusing is still in pre-release mode, ensure that in visual studio package manage the prerealse checkbox is check to be able to see it.
 
 ## Desktop
-https://github.com/Eel2000/Maui.RatingView/assets/44249870/c764d534-39e2-446f-8d4e-eaf60ace56e4
+
+
+https://github.com/Eel2000/Maui.RatingView/assets/44249870/567d3cd0-5249-4470-9c85-db4e724aac9b
+
+
 
 
 ## Mobile(Android)
-https://github.com/Eel2000/Maui.RatingView/assets/44249870/c40b60e8-dbe3-40ca-b0cd-9b0b55059c35
+
+
+https://github.com/Eel2000/Maui.RatingView/assets/44249870/6cc96350-f2f7-4e25-8b01-75ead4f8691f
 
 
 
-## Getting Started with the Rating View Ccontrol
+
+
+## Getting Started with the Rating View Plugin
 
 ### Configuration
 
@@ -79,7 +87,11 @@ xmlns:rv="clr-namespace:RatingView.Views;assembly=RatingView"
 ```
 Output
 
-https://github.com/Eel2000/Maui.RatingView/assets/44249870/94e49c5a-15ae-4eae-91d7-d2f310ec8e14
+
+https://github.com/Eel2000/Maui.RatingView/assets/44249870/7e7a50c5-5e20-4dcc-88af-159ec40eaed9
+
+
+
 
 ### Linking Heart
 
@@ -93,7 +105,11 @@ https://github.com/Eel2000/Maui.RatingView/assets/44249870/94e49c5a-15ae-4eae-91
 
 OutPut 
 
-https://github.com/Eel2000/Maui.RatingView/assets/44249870/ce31a3ac-1621-44df-a224-5ed02c2b7880
+
+https://github.com/Eel2000/Maui.RatingView/assets/44249870/9123fc20-c02b-4f0b-b4a9-85629aea87f6
+
+
+
 
 ## Created By: Eliezer Bwana
 

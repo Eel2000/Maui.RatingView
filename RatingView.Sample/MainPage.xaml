@@ -1,123 +1,194 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:rv="clr-namespace:RatingView.Views;assembly=RatingView"
-             xmlns:vm="clr-namespace:RatingView.Sample.ViewModels"
-             x:Class="RatingView.Sample.MainPage"
-             x:DataType="vm:MainPageViewModel">
+<ContentPage
+    x:Class="RatingView.Sample.MainPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:rv="clr-namespace:RatingView.Views;assembly=RatingView"
+    xmlns:vm="clr-namespace:RatingView.Sample.ViewModels"
+    x:DataType="vm:MainPageViewModel">
 
     <ScrollView>
         <VerticalStackLayout
-            Spacing="25"
             Padding="30,0"
+            Spacing="25"
             VerticalOptions="Center">
 
             <Image
-                Source="dotnet_bot.png"
-                SemanticProperties.Description="Cute dot net bot waving hi to you!"
                 HeightRequest="200"
-                HorizontalOptions="Center" />
+                HorizontalOptions="Center"
+                SemanticProperties.Description="Cute dot net bot waving hi to you!"
+                Source="dotnet_bot.png" />
 
             <Label
-                Text="Hello, World! this is a RatingView Sample"
-                SemanticProperties.HeadingLevel="Level1"
                 FontSize="32"
-                HorizontalOptions="Center" />
+                HorizontalOptions="Center"
+                SemanticProperties.HeadingLevel="Level1"
+                Text="Hello, World! this is a RatingView Sample" />
 
             <Label
-                Text="Welcome to .NET Multi-platform App UI"
-                SemanticProperties.HeadingLevel="Level2"
-                SemanticProperties.Description="Welcome to dot net Multi platform App U I"
                 FontSize="18"
-                HorizontalOptions="Center" />
+                HorizontalOptions="Center"
+                SemanticProperties.Description="Welcome to dot net Multi platform App U I"
+                SemanticProperties.HeadingLevel="Level2"
+                Text="Welcome to .NET Multi-platform App UI" />
 
 
             <VerticalStackLayout>
-                <Label Text="Simple rating without data binding" HorizontalOptions="Center"/>
-                <rv:RatingControl Maximum="5" Value="3" Size="40" AllowRating="True" Shape="Heart"
-                                  StrokeThickness="5"/>
+                <Label HorizontalOptions="Center" Text="Simple rating without data binding" />
+                <rv:RatingControl
+                    AllowRating="True"
+                    Maximum="5"
+                    Shape="Heart"
+                    Size="40"
+                    StrokeThickness="5"
+                    Value="3" />
             </VerticalStackLayout>
 
             <VerticalStackLayout>
-                <Label Text="Simple rating without data binding" HorizontalOptions="Center"/>
-                <rv:RatingControl Maximum="5" Value="3.5" Size="40" AllowRating="True" Shape="Star"
-                                  StrokeThickness="5" Fill="Coral"/>
+                <Label HorizontalOptions="Center" Text="Simple rating without data binding" />
+                <rv:RatingControl
+                    AllowRating="True"
+                    Fill="Coral"
+                    Maximum="5"
+                    Shape="Star"
+                    Size="40"
+                    StrokeThickness="5"
+                    Value="3.5" />
             </VerticalStackLayout>
 
             <VerticalStackLayout>
-                <Label Text="Simple rating without data binding" HorizontalOptions="Center"/>
-                <rv:RatingControl Maximum="5" Value="4.5" Size="40" AllowRating="True" Shape="Heart"
-                                  StrokeThickness="5" Fill="DarkOrange"/>
+                <Label HorizontalOptions="Center" Text="Simple rating without data binding" />
+                <rv:RatingControl
+                    AllowRating="True"
+                    Fill="DarkOrange"
+                    Maximum="5"
+                    Shape="Heart"
+                    Size="40"
+                    StrokeThickness="5"
+                    Value="4.5" />
             </VerticalStackLayout>
 
             <VerticalStackLayout>
-                <Label Text="Rating without bindin and click rating" HorizontalOptions="Center"/>
-                <rv:RatingControl Maximum="5" Value="2.5" Size="40" Fill="BlueViolet" Shape="Like"
-                                  StrokeThickness="5"/>
+                <Label HorizontalOptions="Center" Text="Rating without bindin and click rating" />
+                <rv:RatingControl
+                    Fill="BlueViolet"
+                    Maximum="5"
+                    Shape="Like"
+                    Size="40"
+                    StrokeThickness="5"
+                    Value="2.5" />
             </VerticalStackLayout>
 
             <VerticalStackLayout>
-                <Label Text="Rating without bindin and click rating" HorizontalOptions="Center"/>
-                <rv:RatingControl Maximum="5" Value="1.27" Size="40" Fill="DarkRed" Shape="Dislike"
-                                  StrokeThickness="5"/>
+                <Label HorizontalOptions="Center" Text="Rating without bindin and click rating" />
+                <rv:RatingControl
+                    Fill="DarkRed"
+                    Maximum="5"
+                    Shape="Dislike"
+                    Size="40"
+                    StrokeThickness="5"
+                    Value="1.27" />
             </VerticalStackLayout>
 
             <VerticalStackLayout>
-                <Label Text="Rating with data binding and command without param" HorizontalOptions="Center"/>
-                <rv:RatingControl Maximum="5" Value="{Binding RatingValue}" Size="40" AllowRating="True"
-                           Fill="GreenYellow" StrokeThickness="5"/>
+                <Label HorizontalOptions="Center" Text="Rating with data binding and command without param" />
+                <rv:RatingControl
+                    AllowRating="True"
+                    Fill="GreenYellow"
+                    Maximum="5"
+                    Size="40"
+                    StrokeThickness="5"
+                    Value="{Binding RatingValue}" />
             </VerticalStackLayout>
 
             <VerticalStackLayout>
-                <Label Text="Rating with data binding and command without param" HorizontalOptions="Center"/>
-                <rv:RatingControl Maximum="5" Value="{Binding RatingValue}" Size="40" AllowRating="True"
-                           Fill="BurlyWood" Command="{Binding ShowRatingCommand}"
-                                  StrokeThickness="5" Shape="Heart"/>
+                <Label HorizontalOptions="Center" Text="Rating with data binding and command without param" />
+                <rv:RatingControl
+                    AllowRating="True"
+                    Command="{Binding ShowRatingCommand}"
+                    Fill="BurlyWood"
+                    Maximum="5"
+                    Shape="Heart"
+                    Size="40"
+                    StrokeThickness="5"
+                    Value="{Binding RatingValue}" />
             </VerticalStackLayout>
 
             <VerticalStackLayout>
-                <Label Text="Rating with data binding and command without param" HorizontalOptions="Center"/>
-                <rv:RatingControl Maximum="5" Value="{Binding RatingValue}" Size="40" AllowRating="True"
-                           Fill="Aquamarine" Command="{Binding ShowRatingCommand}"
-                                  StrokeThickness="5" Shape="Like"/>
+                <Label HorizontalOptions="Center" Text="Rating with data binding and command without param" />
+                <rv:RatingControl
+                    AllowRating="True"
+                    Command="{Binding ShowRatingCommand}"
+                    Fill="Aquamarine"
+                    Maximum="5"
+                    Shape="Like"
+                    Size="40"
+                    StrokeThickness="5"
+                    Value="{Binding RatingValue}" />
             </VerticalStackLayout>
 
             <VerticalStackLayout>
-                <Label Text="Rating with data binding and command without param" HorizontalOptions="Center"/>
-                <rv:RatingControl Maximum="1" Size="40" AllowRating="True"
-                           Fill="Aquamarine" Command="{Binding ShowRatingCommand}"
-                                  StrokeThickness="5" Shape="Like"/>
+                <Label HorizontalOptions="Center" Text="Rating with data binding and command without param" />
+                <rv:RatingControl
+                    AllowRating="True"
+                    Command="{Binding ShowRatingCommand}"
+                    Fill="Aquamarine"
+                    Maximum="1"
+                    Shape="Like"
+                    Size="40"
+                    StrokeThickness="5" />
             </VerticalStackLayout>
 
             <VerticalStackLayout Spacing="5">
-                <Label Text="Liked scenario" HorizontalOptions="Center"/>
-                <HorizontalStackLayout Spacing="10" HorizontalOptions="CenterAndExpand">
-                    <rv:RatingControl x:Name="likedBtn" Maximum="1" Value="{Binding Liked}" Size="40" AllowRating="True"
-                           Fill="ForestGreen" Command="{Binding LikeDislikeCommand}" BindControl="{x:Reference unLikedBtn}"
-                                  StrokeThickness="5" Shape="Like"/>
+                <Label HorizontalOptions="Center" Text="Liked scenario" />
+                <HorizontalStackLayout HorizontalOptions="CenterAndExpand" Spacing="10">
+                    <rv:RatingControl
+                        x:Name="likedBtn"
+                        AllowRating="True"
+                        BindControl="{x:Reference unLikedBtn}"
+                        Command="{Binding LikeDislikeCommand}"
+                        Fill="ForestGreen"
+                        Maximum="1"
+                        Shape="Like"
+                        Size="40"
+                        StrokeThickness="5"
+                        Value="{Binding Liked}" />
 
-                    <rv:RatingControl x:Name="unLikedBtn" Maximum="1" Value="{Binding UnLiked}" Size="40" AllowRating="True"
-                                      Fill="DarkRed" Command="{Binding LikeDislikeCommand}" 
-                                      BindControl="{x:Reference likedBtn}"
-                                      StrokeThickness="5" Shape="Dislike"/>
+                    <rv:RatingControl
+                        x:Name="unLikedBtn"
+                        AllowRating="True"
+                        BindControl="{x:Reference likedBtn}"
+                        Command="{Binding LikeDislikeCommand}"
+                        Fill="DarkRed"
+                        Maximum="1"
+                        Shape="Dislike"
+                        Size="40"
+                        StrokeThickness="5"
+                        Value="{Binding UnLiked}" />
                 </HorizontalStackLayout>
             </VerticalStackLayout>
 
             <VerticalStackLayout>
-                <Label Text="Rating with data binding and command/ Command param" HorizontalOptions="Center"/>
-                <Label Text="{Binding RatingValue, StringFormat='{0}/5'}" HorizontalOptions="Center"/>
-                <rv:RatingControl Maximum="5" Value="{Binding RatingValue}" Size="40" 
-                           Fill="Purple" Command="{Binding RatingCommand}"
-                           CommandParameter="{Binding Data}" AllowRating="True"
-                                  StrokeThickness="5"/>
+                <Label HorizontalOptions="Center" Text="Rating with data binding and command/ Command param" />
+                <Label HorizontalOptions="Center" Text="{Binding RatingValue, StringFormat='{0}/5'}" />
+                <rv:RatingView2
+                    x:Name="RatingControl"
+                    AllowRating="True"
+                    Command="{Binding RatingCommand}"
+                    CommandParameter="{Binding Data}"
+                    Fill="Purple"
+                    Maximum="5"
+                    Size="40"
+                    StrokeThickness="5"
+                    Value="{Binding RatingValue}" />
             </VerticalStackLayout>
 
             <Button
                 x:Name="CounterBtn"
-                Text="Click me"
-                SemanticProperties.Hint="Counts the number of times you click"
                 Clicked="OnCounterClicked"
-                HorizontalOptions="Center" />
+                HorizontalOptions="Center"
+                SemanticProperties.Hint="Counts the number of times you click"
+                Text="Click me" />
 
         </VerticalStackLayout>
     </ScrollView>

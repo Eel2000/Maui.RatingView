@@ -1,4 +1,5 @@
 ﻿using RatingView.Sample.ViewModels;
+using RatingView.Views;
 
 namespace RatingView.Sample
 {
@@ -11,6 +12,11 @@ namespace RatingView.Sample
             InitializeComponent();
 
             BindingContext = vm;
+
+            var rating = new RatingView2()
+            {
+                Children = {  }
+            };
         }
 
         private void OnCounterClicked(object sender, EventArgs e)

@@ -1,4 +1,5 @@
 ﻿using RatingView.Sample.ViewModels;
+using RatingView.Views;
 
 namespace RatingView.Sample
 {
@@ -11,6 +12,7 @@ namespace RatingView.Sample
             InitializeComponent();
 
             BindingContext = vm;
+            var rating = new RatingView2();
         }
 
         private void OnCounterClicked(object sender, EventArgs e)
@@ -23,6 +25,8 @@ namespace RatingView.Sample
                 CounterBtn.Text = $"Clicked {count} times";
 
             SemanticScreenReader.Announce(CounterBtn.Text);
+
+            Application.Current.MainPage.DisplayAlert("children", $"childrem count", "OK");
         }
     }
 }

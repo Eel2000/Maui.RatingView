@@ -180,7 +180,11 @@
                     Maximum="5"
                     Size="40"
                     StrokeThickness="5"
-                    Value="{Binding RatingValue}" />
+                    Value="{Binding RatingValue}">
+                    <Grid>
+                        <Label Text="Grid" />
+                    </Grid>
+                </rv:RatingView2>
             </VerticalStackLayout>
 
             <Button

@@ -2,12 +2,13 @@ using System.Windows.Input;
 using Microsoft.Maui.Controls.Shapes;
 using RatingView.Enums;
 using RatingView.Models;
+using RatingView.Shared;
 using RatingView.Utils;
 using RatingView.Utils.Constants;
 
 namespace RatingView.Views;
 
-public sealed class RatingView2 : Grid
+public sealed class RatingView2 : Border
 {
     #region Private Properties
 
@@ -17,8 +18,7 @@ public sealed class RatingView2 : Grid
 
     private PathFigureCollection _converted;
 
-    private int _touchedTime = 0;
-
+    //private readonly List<IView> _myChildren = new List<IView>();
     #endregion
 
     #region Bindable Properties
@@ -203,23 +203,30 @@ public sealed class RatingView2 : Grid
         set => SetValue(ShapeProperty, value);
     }
 
-    internal new IList<IView> Children { get; set; }
+    //public new IReadOnlyList<IView> Children => _myChildren;
 
     #endregion
+
+    Grid content = new();
+
+    public new View Content { get => base.Content; private set => base.Content = value; }
 
     public RatingView2()
     {
         _shapes = new Microsoft.Maui.Controls.Shapes.Path[Maximum];
 
-        Children = new List<IView>();
 
         HorizontalOptions = LayoutOptions.CenterAndExpand;
 
-        ColumnSpacing = Spacing;
+        this.content.ColumnSpacing = Spacing;
 
         InitializeShape();
 
         DrawBase();
+
+        //Content = content;
+
+        this.Stroke = Colors.Transparent;
     }
 
     #region Events
@@ -243,7 +250,7 @@ public sealed class RatingView2 : Grid
 
         if (tappedShape is null) return;
 
-        var columnIndex = this.GetColumn(tappedShape);
+        var columnIndex = this.content.GetColumn(tappedShape);
 
 
         if (Maximum > 1)
@@ -271,7 +278,7 @@ public sealed class RatingView2 : Grid
     {
         for (int i = 0; i < Maximum; i++)
         {
-            this.ColumnDefinitions.Add(new ColumnDefinition { Width = Size });
+            this.content.ColumnDefinitions.Add(new ColumnDefinition { Width = Size });
             Microsoft.Maui.Controls.Shapes.Path image = new();
             if (i <= Value)
             {
@@ -306,8 +313,8 @@ public sealed class RatingView2 : Grid
                 image.GestureRecognizers.Add(tapGestureRecognizer);
             }
 
-            Children.Add(image);
-            this.SetColumn(image, i);
+            this.content.Children.Add(image);
+            this.content.SetColumn(image, i);
 
             _shapes[i] = image;
         }
@@ -317,21 +324,21 @@ public sealed class RatingView2 : Grid
 
     private void ReDraw()
     {
-        Children.Clear();
+        this.content.Children.Clear();
 
-        ColumnDefinitions.Clear();
+        this.content.ColumnDefinitions.Clear();
 
         _shapes = new Microsoft.Maui.Controls.Shapes.Path[Maximum];
 
         for (int i = 0; i < Maximum; i++)
         {
-            this.ColumnDefinitions.Add(new ColumnDefinition { Width = Size });
+            this.content.ColumnDefinitions.Add(new ColumnDefinition { Width = Size });
 
             Microsoft.Maui.Controls.Shapes.Path image = new();
             if (i <= Value)
             {
                 var c = PathConverter.ConvertStringPathToGeo(_shape);
-                image.Data = new PathGeometry((Microsoft.Maui.Controls.Shapes.PathFigureCollection)c);
+                image.Data = new PathGeometry((PathFigureCollection)c);
 
                 image.Fill = Fill;
                 image.Stroke = Fill;
@@ -364,8 +371,8 @@ public sealed class RatingView2 : Grid
                 image.GestureRecognizers.Add(tapGestureRecognizer);
             }
 
-            this.Children.Add(image);
-            this.SetColumn(image, i);
+            this.content.Children.Add(image);
+            this.content.SetColumn(image, i);
 
             _shapes[i] = image;
         }
@@ -417,6 +424,8 @@ public sealed class RatingView2 : Grid
                 }
             }
         }
+
+        Content = content;
     }
 
     private PathFigureCollection InitializeShape()
@@ -443,27 +452,4 @@ public sealed class RatingView2 : Grid
 
     #endregion
 
-    protected override void OnChildAdded(Element child)
-    {
-        if (this is null && child is Grid control)
-        {
-            ReDraw();
-            OnControlInitialized(control);
-        }
-
-        base.OnChildAdded(child);
-    }
-
-    protected void OnControlInitialized(Grid control)
-    {
-        _shapes = new Microsoft.Maui.Controls.Shapes.Path[Maximum];
-
-        _converted = InitializeShape();
-
-        HorizontalOptions = LayoutOptions.CenterAndExpand;
-
-        this.ColumnSpacing = Spacing;
-
-        DrawBase();
-    }
 }
